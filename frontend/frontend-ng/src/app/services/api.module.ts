@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { UserControllerService } from './services/user-controller.service';
+import { InternshipControllerService } from './services/internship-controller.service';
 import { TestService } from './services/test.service';
 
 /**
@@ -18,6 +19,7 @@ import { TestService } from './services/test.service';
   declarations: [],
   providers: [
     UserControllerService,
+    InternshipControllerService,
     TestService,
     ApiConfiguration
   ],

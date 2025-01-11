@@ -9,13 +9,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
 import { HomeComponent } from './components/home/home.component';
+import { InternshipsComponent } from './components/internships/internships.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    InternshipsComponent
   ],
   imports: [
     BrowserModule,

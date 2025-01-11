@@ -8,13 +8,18 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
+import { Internship } from '../../models/internship';
 
-export interface Test$Params {
+export interface GetInternshipById$Params {
+  id: number;
+  Authorization: string;
 }
 
-export function test(http: HttpClient, rootUrl: string, params?: Test$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
-  const rb = new RequestBuilder(rootUrl, test.PATH, 'get');
+export function getInternshipById(http: HttpClient, rootUrl: string, params: GetInternshipById$Params, context?: HttpContext): Observable<StrictHttpResponse<Internship>> {
+  const rb = new RequestBuilder(rootUrl, getInternshipById.PATH, 'get');
   if (params) {
+    rb.path('id', params.id, {});
+    rb.header('Authorization', params.Authorization, {});
   }
 
   return http.request(
@@ -22,9 +27,9 @@ export function test(http: HttpClient, rootUrl: string, params?: Test$Params, co
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<string>;
+      return r as StrictHttpResponse<Internship>;
     })
   );
 }
 
-test.PATH = '/test';
+getInternshipById.PATH = '/api/internship/viewInternship/{id}';

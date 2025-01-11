@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h1 class="display-4 text-center">Internships</h1>
+
+  <div *ngIf="loading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!loading && internships.length === 0" class="text-center my-5">
+    <p class="fs-5">No internships available at the moment.</p>
+  </div>
+
+  <div *ngIf="!loading && internships.length > 0" class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let internship of internships" class="col">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ internship.endDate }}</h5>
+          <p class="card-text">
+            <strong>Company:</strong> {{ internship.paid }} <br>
+            <strong>Location:</strong> {{ internship.startDate }} <br>
+            <strong>Duration:</strong> {{ internship.technology }}
+          </p>
+        </div>
+        <div class="card-footer text-end">
+          <button class="btn btn-primary">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

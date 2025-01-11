@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import {Router} from "@angular/router";
+import {UserInfo} from "../../../services/models/user-info";
+import {UserControllerService} from "../../../services/services/user-controller.service";
 
 @Component({
   selector: 'app-login',
@@ -7,34 +10,53 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  loginForm: FormGroup;
-  submitted = false;
-  loading = false;
+  authRequest: UserInfo = { email: '', enabled: false, name: '', password: '', roles: ''};
+  errorMsg: Array<string> = [];
 
-  constructor(private formBuilder: FormBuilder) {
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+  constructor(
+    private router: Router,
+    private authService: UserControllerService,
+    // private tokenService: TokenService
+  ) {}
+
+  login() {
+    this.errorMsg = [];
+    this.authService.authenticateAndGetToken({
+      body: this.authRequest
+    }).subscribe({
+      next: (res : any) => {
+        // this.tokenService.token = res.token as string;
+        this.router.navigate(['fragrances']);
+      },
+      error: (err : any) => {
+        console.log(err);
+        if (err.error.validationErrors) {
+          this.errorMsg = err.error.validationErrors;
+        } else {
+          let errorMessage = err.error;
+          let errorMessageParts = errorMessage.split(":");
+          if (errorMessageParts.length > 1) {
+            errorMessage = errorMessageParts.slice(1).join(":").trim();
+          }
+          this.errorMsg.push(errorMessage);
+        }
+      }
     });
   }
 
-  // Getter for form controls with explicit typing
-  get f(): { [key: string]: FormControl } {
-    return this.loginForm.controls as { [key: string]: FormControl };
+  register() {
+    this.router.navigate(['register']);
   }
 
-  onSubmit(): void {
-    this.submitted = true;
-
-    if (this.loginForm.invalid) {
-      return;
+  togglePasswordVisibility(event: any) {
+    const passwordInput = document.getElementById('password');
+    if (passwordInput) {
+      const passwordField = passwordInput as HTMLInputElement;
+      passwordField.type = event.target.checked ? 'text' : 'password';
     }
+  }
 
-    this.loading = true;
-
-    setTimeout(() => {
-      alert('Login successful!');
-      this.loading = false;
-    }, 1000);
+  resetPassword() {
+    this.router.navigate(['reset-password']);
   }
 }

@@ -8,15 +8,17 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-import { UserInfo } from '../../models/user-info';
+import { Internship } from '../../models/internship';
 
-export interface AddUser$Params {
-      body: UserInfo
+export interface SaveInternship$Params {
+  Authorization: string;
+      body: Internship
 }
 
-export function addUser(http: HttpClient, rootUrl: string, params: AddUser$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, addUser.PATH, 'post');
+export function saveInternship(http: HttpClient, rootUrl: string, params: SaveInternship$Params, context?: HttpContext): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, saveInternship.PATH, 'post');
   if (params) {
+    rb.header('Authorization', params.Authorization, {});
     rb.body(params.body, 'application/json');
   }
 
@@ -30,4 +32,4 @@ export function addUser(http: HttpClient, rootUrl: string, params: AddUser$Param
   );
 }
 
-addUser.PATH = '/api/user/register';
+saveInternship.PATH = '/api/internship/saveInternship';

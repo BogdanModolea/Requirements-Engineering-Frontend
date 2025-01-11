@@ -23,7 +23,7 @@ export class UserControllerService extends BaseService {
   }
 
   /** Path part for operation `addUser()` */
-  static readonly AddUserPath = '/register';
+  static readonly AddUserPath = '/api/user/register';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -48,7 +48,7 @@ export class UserControllerService extends BaseService {
   }
 
   /** Path part for operation `authenticateAndGetToken()` */
-  static readonly AuthenticateAndGetTokenPath = '/authenticate';
+  static readonly AuthenticateAndGetTokenPath = '/api/user/authenticate';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
