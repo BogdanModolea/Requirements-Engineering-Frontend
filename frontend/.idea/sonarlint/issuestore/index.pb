@@ -1,5 +1,5 @@
 
-V
-&frontend-ng/src/app/app.component.html,e\7\e7e8a9113cdb3885060954a501d657435be725dd
-V
-&frontend-ng/src/app/app.component.scss,b\e\be0e301da812dc7996d6b09d15174dd773de4ab7
+H
+frontend-ng/package.json,1\e\1efbc92f916fb06796e29b32b88076ecd4fa51d7
+c
+3frontend-ng/src/app/services/models/auth-request.ts,4\8\484d8569acf3f840a97bd4045ecba9ee4d330d90

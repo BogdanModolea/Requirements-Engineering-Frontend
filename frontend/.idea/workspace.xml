@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2f0797af-ad21-49d4-827a-dca54eafdb54" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/e/be0e301da812dc7996d6b09d15174dd773de4ab7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/7/e7e8a9113cdb3885060954a501d657435be725dd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/e/be0e301da812dc7996d6b09d15174dd773de4ab7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/7/e7e8a9113cdb3885060954a501d657435be725dd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/app.module.ts" afterDir="false" />
+    </list>
+    <list id="f0ecb4ea-ec2c-4ece-ad53-b3f50f78b3cc" name="Changes by eXoDuSs" comment="">
+      <change beforePath="$PROJECT_DIR$/frontend-ng/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/frontend-ng/package.json">
+      <ranges>
+        <range start1="8" end1="9" start2="8" end2="10" changelist="f0ecb4ea-ec2c-4ece-ad53-b3f50f78b3cc" />
+        <range start1="20" end1="20" start2="21" end2="22" changelist="2f0797af-ad21-49d4-827a-dca54eafdb54" />
+      </ranges>
+    </file>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="2rUZOD1t5p3mJp1ETvJRh7laKrs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/User/source/repos/proiect-colectiv/frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\User\\source\\repos\\Requirements-Engineering-Frontend\\frontend\\frontend-ng\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\source\repos\Requirements-Engineering-Frontend\frontend\frontend-ng\src\app\components" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="customTemplatesPath" value="" />
+      <option name="generateToPath" value="C:\Users\User\gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorType" value="OPENAPI_GENERATOR_V6" />
+      <option name="jdkPath" value="C:\Program Files\JetBrains\IntelliJ IDEA 2023.2\jbr\bin\java.exe" />
+      <option name="language" value="kotlin" />
+      <option name="specificationPath" value="C:\Users\User\source\repos\Requirements-Engineering-Frontend\frontend\frontend-ng\src\openapi\openapi.json" />
+      <method v="2" />
+    </configuration>
+    <configuration name="api-gen" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend-ng/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="api-gen" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.api-gen" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2f0797af-ad21-49d4-827a-dca54eafdb54" name="Changes" comment="" />
+      <created>1736615580705</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1736615580705</updated>
+      <workItem from="1736615581840" duration="5909000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
