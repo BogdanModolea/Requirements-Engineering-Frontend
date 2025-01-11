@@ -1,1 +1,56 @@
-<p>applications works!</p>
+<div class="container mt-5">
+  <h1 class="display-4 text-center">Applications</h1>
+
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="text-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- No Applications Message -->
+  <div *ngIf="!loading && applications.length === 0" class="text-center my-5">
+    <p class="fs-5">No applications available at the moment.</p>
+  </div>
+
+  <!-- Applications List -->
+  <div *ngIf="!loading && applications.length > 0" class="list-group">
+    <div *ngFor="let application of applications" class="list-group-item">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5 class="mb-0">Application #{{ application.id }}</h5>
+        <span
+          class="badge"
+          [ngClass]="{
+            'bg-warning': application.status === 'PENDING',
+            'bg-success': application.status === 'APPROVED',
+            'bg-danger': application.status === 'REJECTED'
+          }"
+        >
+          {{ application.status }}
+        </span>
+      </div>
+      <p class="mb-1">
+        <strong>Applicant:</strong> {{ application.user?.name }} ({{ application.user?.email }})<br />
+        <strong>Internship:</strong> {{ application.internship?.technology }} at
+        {{ application.internship?.company }}<br />
+        <strong>Applied On:</strong> {{ application.applicationDate }}
+      </p>
+      <div class="d-flex gap-2">
+        <button
+          class="btn btn-success"
+          (click)="acceptApplication(application.id!)"
+          [disabled]="application.status !== 'PENDING'"
+        >
+          Accept
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="rejectApplication(application.id!)"
+          [disabled]="application.status !== 'PENDING'"
+        >
+          Reject
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

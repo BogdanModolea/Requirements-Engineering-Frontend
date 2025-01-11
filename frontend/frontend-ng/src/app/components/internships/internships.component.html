@@ -31,16 +31,16 @@
           <button
             *ngIf="isStudent() && hasStarted(internship.startDate)"
             class="btn btn-primary"
-            (click)="applyForInternship(internship.id)"
+            (click)="applyForInternship(internship.id ?? -1)"
           >
             Apply
           </button>
           <button
             *ngIf="!isStudent()"
             class="btn btn-secondary"
-            disabled
+            (click)="viewApplications()"
           >
-            Not Eligible
+            View Applications
           </button>
           <button
             *ngIf="!hasStarted(internship.startDate)"

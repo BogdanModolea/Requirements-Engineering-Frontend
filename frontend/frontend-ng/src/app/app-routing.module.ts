@@ -5,6 +5,7 @@ import {RegisterComponent} from "./components/auth/register/register.component";
 import {HomeComponent} from "./components/home/home.component";
 import {InternshipsComponent} from "./components/internships/internships.component";
 import {ApplyComponent} from "./components/apply/apply.component";
+import {ApplicationsComponent} from "./components/applications/applications.component";
 
 const routes: Routes = [
   {
@@ -28,7 +29,9 @@ const routes: Routes = [
     path: 'internships',
     component: InternshipsComponent
   },
-  {path: 'apply/:id', component: ApplyComponent}
+  {path: 'apply/:id', component: ApplyComponent},
+  { path: 'applications', component: ApplicationsComponent } // New route for applications
+
   // {
   //   path: 'fragrances',
   //   loadChildren: () => import('./modules/fragrance/fragrance.module').then(m => m.FragranceModule),

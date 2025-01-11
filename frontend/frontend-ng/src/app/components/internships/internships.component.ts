@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Internship } from '../../services/models/internship';
-import { UserInfo } from '../../services/models/user-info'; // Import UserInfo model
+import { UserInfo } from '../../services/models/user-info';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,9 +19,9 @@ export class InternshipsComponent implements OnInit {
       id: 1,
       name: 'John Doe',
       email: 'john.doe@example.com',
-      company: 'UBB',
+      company: 'TechCorp', // Change this to 'UBB' to test student behavior
       enabled: true,
-      roles: 'STUDENT'
+      roles: 'USER'
     };
   }
 
@@ -78,12 +78,12 @@ export class InternshipsComponent implements OnInit {
 
   // Safely determine if an internship is paid
   isPaid(paid?: boolean): string {
-    return paid === true ? 'Yes' : 'No'; // Explicitly check for true
+    return paid === true ? 'Yes' : 'No';
   }
 
   // Safely check if an internship is open
   isOpen(open?: boolean): string {
-    return open === true ? 'Open' : 'Closed'; // Explicitly check for true
+    return open === true ? 'Open' : 'Closed';
   }
 
   // Safely determine if an internship start date is valid
@@ -97,15 +97,20 @@ export class InternshipsComponent implements OnInit {
 
   // Check if the user is a student based on their company
   isStudent(): boolean {
-    return this.currentUser.company === 'UBB'; // Return true if user is from UBB
+    return this.currentUser.company === 'UBB';
   }
 
   // Navigate to the apply page
   applyForInternship(internshipId: number | undefined): void {
     if (internshipId === undefined) {
-      console.error('Invalid internship ID'); // Handle error as needed
+      console.error('Invalid internship ID');
       return;
     }
-    this.router.navigate(['/apply', internshipId]); // Navigate to the apply component with the valid internship ID
+    this.router.navigate(['/apply', internshipId]);
+  }
+
+  // Navigate to the applications page
+  viewApplications(): void {
+    this.router.navigate(['/applications']);
   }
 }
