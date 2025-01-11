@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from "./components/auth/login/login.component";
 import {RegisterComponent} from "./components/auth/register/register.component";
 import {HomeComponent} from "./components/home/home.component";
 import {InternshipsComponent} from "./components/internships/internships.component";
+import {ApplyComponent} from "./components/apply/apply.component";
 
 const routes: Routes = [
   {
@@ -26,7 +27,8 @@ const routes: Routes = [
   {
     path: 'internships',
     component: InternshipsComponent
-  }
+  },
+  {path: 'apply/:id', component: ApplyComponent}
   // {
   //   path: 'fragrances',
   //   loadChildren: () => import('./modules/fragrance/fragrance.module').then(m => m.FragranceModule),
@@ -37,4 +39,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

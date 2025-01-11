@@ -10,6 +10,8 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/h
 import {CommonModule} from "@angular/common";
 import { HomeComponent } from './components/home/home.component';
 import { InternshipsComponent } from './components/internships/internships.component';
+import { ApplicationsComponent } from './components/applications/applications.component';
+import { ApplyComponent } from './components/apply/apply.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { InternshipsComponent } from './components/internships/internships.compo
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    InternshipsComponent
+    InternshipsComponent,
+    ApplicationsComponent,
+    ApplyComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,61 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Apply for Internship #{{ internshipId }}</h2>
+  <form>
+    <!-- Name Field -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        [value]="currentUser.name"
+        disabled
+      />
+    </div>
+
+    <!-- Email Field -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        [value]="currentUser.email"
+        disabled
+      />
+    </div>
+
+    <!-- Company Field -->
+    <div class="mb-3">
+      <label for="company" class="form-label">Company</label>
+      <input
+        type="text"
+        id="company"
+        class="form-control"
+        [value]="currentUser.company"
+        disabled
+      />
+    </div>
+
+    <!-- Additional Information Field -->
+    <div class="mb-3">
+      <label for="additional-info" class="form-label">Additional Information</label>
+      <textarea
+        id="additional-info"
+        class="form-control"
+        [(ngModel)]="additionalInfo"
+        rows="4"
+        placeholder="Enter any additional information about yourself"
+      ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="button"
+      class="btn btn-success w-100"
+      (click)="submitApplication()"
+    >
+      Submit Application
+    </button>
+  </form>
+</div>

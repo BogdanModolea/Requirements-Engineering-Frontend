@@ -11,6 +11,8 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
+import { filterInternships } from '../fn/internship-controller/filter-internships';
+import { FilterInternships$Params } from '../fn/internship-controller/filter-internships';
 import { getAllInternships } from '../fn/internship-controller/get-all-internships';
 import { GetAllInternships$Params } from '../fn/internship-controller/get-all-internships';
 import { getInternshipById } from '../fn/internship-controller/get-internship-by-id';
@@ -96,6 +98,31 @@ export class InternshipControllerService extends BaseService {
    */
   getAllInternships(params: GetAllInternships$Params, context?: HttpContext): Observable<Array<Internship>> {
     return this.getAllInternships$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Array<Internship>>): Array<Internship> => r.body)
+    );
+  }
+
+  /** Path part for operation `filterInternships()` */
+  static readonly FilterInternshipsPath = '/api/internship/filter';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `filterInternships()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  filterInternships$Response(params?: FilterInternships$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Internship>>> {
+    return filterInternships(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `filterInternships$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  filterInternships(params?: FilterInternships$Params, context?: HttpContext): Observable<Array<Internship>> {
+    return this.filterInternships$Response(params, context).pipe(
       map((r: StrictHttpResponse<Array<Internship>>): Array<Internship> => r.body)
     );
   }

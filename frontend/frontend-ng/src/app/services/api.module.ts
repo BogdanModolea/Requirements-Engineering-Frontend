@@ -8,6 +8,7 @@ import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
 import { UserControllerService } from './services/user-controller.service';
 import { InternshipControllerService } from './services/internship-controller.service';
+import { ApplicationControllerService } from './services/application-controller.service';
 import { TestService } from './services/test.service';
 
 /**
@@ -20,6 +21,7 @@ import { TestService } from './services/test.service';
   providers: [
     UserControllerService,
     InternshipControllerService,
+    ApplicationControllerService,
     TestService,
     ApiConfiguration
   ],

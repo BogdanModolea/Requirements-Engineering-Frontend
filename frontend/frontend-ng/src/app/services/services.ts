@@ -4,4 +4,5 @@
 
 export { UserControllerService } from './services/user-controller.service';
 export { InternshipControllerService } from './services/internship-controller.service';
+export { ApplicationControllerService } from './services/application-controller.service';
 export { TestService } from './services/test.service';

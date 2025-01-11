@@ -1,29 +1,54 @@
 <div class="container mt-5">
   <h1 class="display-4 text-center">Internships</h1>
 
+  <!-- Loading Spinner -->
   <div *ngIf="loading" class="text-center my-5">
     <div class="spinner-border text-primary" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
 
+  <!-- No Internships Message -->
   <div *ngIf="!loading && internships.length === 0" class="text-center my-5">
     <p class="fs-5">No internships available at the moment.</p>
   </div>
 
+  <!-- Internship Cards -->
   <div *ngIf="!loading && internships.length > 0" class="row row-cols-1 row-cols-md-3 g-4">
     <div *ngFor="let internship of internships" class="col">
       <div class="card h-100 shadow-sm">
         <div class="card-body">
-          <h5 class="card-title">{{ internship.endDate }}</h5>
+          <h5 class="card-title">{{ internship.technology }} Internship</h5>
           <p class="card-text">
-            <strong>Company:</strong> {{ internship.paid }} <br>
-            <strong>Location:</strong> {{ internship.startDate }} <br>
-            <strong>Duration:</strong> {{ internship.technology }}
+            <strong>Company:</strong> {{ internship.company || 'Unknown' }} <br />
+            <strong>Start Date:</strong> {{ internship.startDate || 'Not specified' }} <br />
+            <strong>End Date:</strong> {{ internship.endDate || 'Not specified' }} <br />
+            <strong>Paid:</strong> {{ isPaid(internship.paid) }} <br />
+            <strong>Status:</strong> {{ isOpen(internship.open) }}
           </p>
         </div>
         <div class="card-footer text-end">
-          <button class="btn btn-primary">View Details</button>
+          <button
+            *ngIf="isStudent() && hasStarted(internship.startDate)"
+            class="btn btn-primary"
+            (click)="applyForInternship(internship.id)"
+          >
+            Apply
+          </button>
+          <button
+            *ngIf="!isStudent()"
+            class="btn btn-secondary"
+            disabled
+          >
+            Not Eligible
+          </button>
+          <button
+            *ngIf="!hasStarted(internship.startDate)"
+            class="btn btn-secondary"
+            disabled
+          >
+            Closed
+          </button>
         </div>
       </div>
     </div>
