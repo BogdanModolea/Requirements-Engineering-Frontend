@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Internship } from '../../services/models/internship';
 import { UserInfo } from '../../services/models/user-info';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-internships',
@@ -13,13 +14,29 @@ export class InternshipsComponent implements OnInit {
   currentUser: UserInfo; // Current logged-in user
   loading: boolean = false;
 
-  constructor(private router: Router) {
+  technologies: string[] = [
+    'JAVA',
+    'PYTHON',
+    'CPP',
+    'CS',
+    'ANGULAR',
+    'REACT',
+    'VUEJS'
+  ];
+
+  filterCriteria = {
+    paid: null as boolean | null,
+    open: null as boolean | null,
+    technology: ''
+  };
+
+  constructor(private router: Router, private http: HttpClient) {
     // Placeholder user data for testing
     this.currentUser = {
       id: 1,
       name: 'John Doe',
       email: 'john.doe@example.com',
-      company: 'TechCorp', // Change this to 'UBB' to test student behavior
+      company: 'Microsoft', // Change to 'UBB' for student testing
       enabled: true,
       roles: 'USER'
     };
@@ -32,140 +49,111 @@ export class InternshipsComponent implements OnInit {
   fetchInternships(): void {
     this.loading = true;
 
-    // Placeholder data to simulate internships
-    setTimeout(() => {
-      this.internships = [
-        {
-          id: 1,
-          company: 'TechCorp',
-          startDate: '2025-02-01',
-          endDate: '2025-05-01',
-          paid: true,
-          open: true,
-          technology: 'JAVA'
-        },
-        {
-          id: 2,
-          company: 'DataWorks',
-          startDate: '2025-03-01',
-          endDate: '2025-09-01',
-          paid: false,
-          open: true,
-          technology: 'PYTHON'
-        },
-        {
-          id: 3,
-          company: 'Innovate Ltd.',
-          startDate: '2025-01-15',
-          endDate: '2025-04-15',
-          paid: true,
-          open: false,
-          technology: 'ANGULAR'
-        },
-        {
-          id: 4,
-          company: 'Creative Studios',
-          startDate: '2025-04-01',
-          endDate: '2025-06-30',
-          paid: false,
-          open: true,
-          technology: 'REACT'
-        },
-        {
-          id: 5,
-          company: 'TechCorp',
-          startDate: '2025-06-01',
-          endDate: '2025-09-30',
-          paid: true,
-          open: true,
-          technology: 'JAVA'
-        },
-        {
-          id: 6,
-          company: 'TechCorp',
-          startDate: '2025-06-01',
-          endDate: '2025-09-30',
-          paid: true,
-          open: true,
-          technology: 'JAVA'
-        },
-        {
-          id: 7,
-          company: 'TechCorp',
-          startDate: '2025-06-01',
-          endDate: '2025-09-30',
-          paid: true,
-          open: true,
-          technology: 'JAVA'
-        },
-        {
-          id: 8,
-          company: 'TechCorp',
-          startDate: '2025-06-01',
-          endDate: '2025-09-30',
-          paid: true,
-          open: true,
-          technology: 'JAVA'
-        },
-        {
-          id: 9,
-          company: 'TechCorp',
-          startDate: '2025-06-01',
-          endDate: '2025-09-30',
-          paid: true,
-          open: true,
-          technology: 'JAVA'
-        },
-        {
-          id: 10,
-          company: 'TechCorp',
-          startDate: '2025-06-01',
-          endDate: '2025-09-30',
-          paid: true,
-          open: true,
-          technology: 'JAVA'
-        }
-
-      ];
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found in localStorage');
       this.loading = false;
-    }, 1000); // Simulate API delay
-  }
-
-  // Safely determine if an internship is paid
-  isPaid(paid?: boolean): string {
-    return paid === true ? 'Yes' : 'No';
-  }
-
-  // Safely check if an internship is open
-  isOpen(open?: boolean): string {
-    return open === true ? 'Open' : 'Closed';
-  }
-
-  // Safely determine if an internship start date is valid
-  hasStarted(startDate?: string): boolean {
-    if (!startDate) {
-      return false; // If startDate is undefined, return false
+      return;
     }
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+
+    let apiUrl = 'http://localhost:8080/api/internship/listInternships';
+
+    // Build the API URL based on the user type and filters
+    if (!this.isStudent()) {
+      const params = new URLSearchParams();
+
+      // Company-specific internships
+      if (this.currentUser.company) {
+        params.append('company', this.currentUser.company);
+      }
+
+      // Apply filters for company users
+      if (this.filterCriteria.paid !== null) {
+        params.append('paid', this.filterCriteria.paid.toString());
+      }
+      if (this.filterCriteria.open !== null) {
+        params.append('open', this.filterCriteria.open.toString());
+      }
+      if (this.filterCriteria.technology) {
+        params.append('technology', this.filterCriteria.technology);
+      }
+
+      apiUrl = `http://localhost:8080/api/internship/filter?${params.toString()}`;
+    } else if (this.filterCriteria.paid !== null || this.filterCriteria.open !== null || this.filterCriteria.technology) {
+      // Apply filters for students
+      const params = new URLSearchParams();
+      if (this.filterCriteria.paid !== null) {
+        params.append('paid', this.filterCriteria.paid.toString());
+      }
+      if (this.filterCriteria.open !== null) {
+        params.append('open', this.filterCriteria.open.toString());
+      }
+      if (this.filterCriteria.technology) {
+        params.append('technology', this.filterCriteria.technology);
+      }
+      apiUrl = `http://localhost:8080/api/internship/filter?${params.toString()}`;
+    }
+
+    this.http.get<Internship[]>(apiUrl, { headers }).subscribe({
+      next: (data) => {
+        this.internships = data;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error fetching internships:', error);
+        this.loading = false;
+      }
+    });
+  }
+
+  isPaid(paid?: boolean): string {
+    return paid ? 'Yes' : 'No';
+  }
+
+  isOpen(open?: boolean): string {
+    return open ? 'Open' : 'Closed';
+  }
+
+  hasStarted(startDate?: string): boolean {
+    if (!startDate) return false;
     const today = new Date();
     return new Date(startDate) >= today;
   }
 
-  // Check if the user is a student based on their company
   isStudent(): boolean {
     return this.currentUser.company === 'UBB';
   }
 
-  // Navigate to the apply page
-  applyForInternship(internshipId: number | undefined): void {
-    if (internshipId === undefined) {
+  applyForInternship(internshipId: number): void {
+    if (internshipId === undefined || internshipId < 0) {
       console.error('Invalid internship ID');
       return;
     }
     this.router.navigate(['/apply', internshipId]);
   }
 
-  // Navigate to the applications page
-  viewApplications(): void {
-    this.router.navigate(['/applications']);
+  viewApplications(internshipId: number): void {
+    if (internshipId) {
+      this.router.navigate([`/applications/${internshipId}`]);
+    } else {
+      console.error('Invalid internship ID');
+    }
+  }
+
+  resetFilters(): void {
+    this.filterCriteria = {
+      paid: null,
+      open: null,
+      technology: ''
+    };
+    this.fetchInternships();
+  }
+
+  applyFilters(): void {
+    this.fetchInternships();
   }
 }

@@ -13,12 +13,53 @@
     <p class="fs-5">No internships available at the moment.</p>
   </div>
 
+  <!-- Filter Bar -->
+  <div class="row mb-4">
+    <div class="col-md-3">
+      <select
+        class="form-control"
+        [(ngModel)]="filterCriteria.technology"
+      >
+        <option [value]="''" selected>All Technologies</option>
+        <option *ngFor="let tech of technologies" [value]="tech">{{ tech }}</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select
+        class="form-control"
+        [(ngModel)]="filterCriteria.paid"
+      >
+        <option [value]="null">All</option>
+        <option [value]="true">Paid</option>
+        <option [value]="false">Unpaid</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select
+        class="form-control"
+        [(ngModel)]="filterCriteria.open"
+      >
+        <option [value]="null">All</option>
+        <option [value]="true">Open</option>
+        <option [value]="false">Closed</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-primary w-100" (click)="applyFilters()">Apply Filters</button>
+    </div>
+  </div>
+
+  <!-- Reset Filters -->
+  <div class="text-end mb-4">
+    <button class="btn btn-secondary" (click)="resetFilters()">Reset Filters</button>
+  </div>
+
   <!-- Internship Cards -->
   <div *ngIf="!loading && internships.length > 0" class="row row-cols-1 row-cols-md-3 g-4">
     <div *ngFor="let internship of internships" class="col">
       <div class="card h-100 shadow-sm">
         <div class="card-body">
-          <h5 class="card-title">{{ internship.technology }} Internship</h5>
+          <h5 class="card-title">{{ internship.technology || 'General' }} Internship</h5>
           <p class="card-text">
             <strong>Company:</strong> {{ internship.company || 'Unknown' }} <br />
             <strong>Start Date:</strong> {{ internship.startDate || 'Not specified' }} <br />
@@ -29,7 +70,7 @@
         </div>
         <div class="card-footer text-end">
           <button
-            *ngIf="isStudent() && hasStarted(internship.startDate)"
+            *ngIf="isStudent()"
             class="btn btn-primary"
             (click)="applyForInternship(internship.id ?? -1)"
           >
@@ -38,16 +79,9 @@
           <button
             *ngIf="!isStudent()"
             class="btn btn-secondary"
-            (click)="viewApplications()"
+            (click)="viewApplications(internship.id ?? -1)"
           >
             View Applications
-          </button>
-          <button
-            *ngIf="!hasStarted(internship.startDate)"
-            class="btn btn-secondary"
-            disabled
-          >
-            Closed
           </button>
         </div>
       </div>

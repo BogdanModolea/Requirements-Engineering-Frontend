@@ -30,7 +30,7 @@ const routes: Routes = [
     component: InternshipsComponent
   },
   {path: 'apply/:id', component: ApplyComponent},
-  { path: 'applications', component: ApplicationsComponent } // New route for applications
+  { path: 'applications/:id', component: ApplicationsComponent }, // New route for applications
 
   // {
   //   path: 'fragrances',
