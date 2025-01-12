@@ -138,12 +138,6 @@ export class InternshipsComponent implements OnInit {
     return open ? 'Open' : 'Closed';
   }
 
-  hasStarted(startDate?: string): boolean {
-    if (!startDate) return false;
-    const today = new Date();
-    return new Date(startDate) >= today;
-  }
-
   isStudent(): boolean {
     return this.currentUser?.company === 'UBB';
   }

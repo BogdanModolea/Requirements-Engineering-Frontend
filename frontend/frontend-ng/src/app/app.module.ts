@@ -14,6 +14,8 @@ import { ApplicationsComponent } from './components/applications/applications.co
 import { ApplyComponent } from './components/apply/apply.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MyapplicationComponent } from './myapplication/myapplication.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AddInternshipComponent } from './components/add-internship/add-internship.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { MyapplicationComponent } from './myapplication/myapplication.component'
     ApplicationsComponent,
     ApplyComponent,
     ProfileComponent,
-    MyapplicationComponent
+    MyapplicationComponent,
+    EditProfileComponent,
+    AddInternshipComponent
   ],
   imports: [
     BrowserModule,

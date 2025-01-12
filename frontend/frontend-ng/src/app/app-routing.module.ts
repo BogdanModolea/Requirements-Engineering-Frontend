@@ -8,6 +8,8 @@ import {ApplyComponent} from "./components/apply/apply.component";
 import {ApplicationsComponent} from "./components/applications/applications.component";
 import { ProfileComponent } from './profile/profile.component';
 import { MyapplicationComponent } from './myapplication/myapplication.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AddInternshipComponent } from './components/add-internship/add-internship.component';
 
 const routes: Routes = [
   {
@@ -34,7 +36,9 @@ const routes: Routes = [
   {path: 'apply/:id', component: ApplyComponent},
   { path: 'applications/:id', component: ApplicationsComponent }, 
   { path: 'profile', component: ProfileComponent },
-  { path: 'my-applications', component: MyapplicationComponent },// New route for applications
+  { path: 'my-applications', component: MyapplicationComponent },
+  { path: 'edit-profile/:id', component: EditProfileComponent },
+  { path: 'add-internship', component: AddInternshipComponent },
 
   // {
   //   path: 'fragrances',

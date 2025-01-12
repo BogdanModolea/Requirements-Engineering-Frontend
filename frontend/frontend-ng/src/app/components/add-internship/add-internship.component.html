@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <h1 class="display-4">Add Internship</h1>
+    <form (ngSubmit)="submitInternship()">
+      <div class="mb-3">
+        <label for="technology" class="form-label">Technology</label>
+        <select [(ngModel)]="internship.technology" name="technology" class="form-control" required>
+          <option value="" disabled selected>Select a Technology</option>
+          <option value="JAVA">Java</option>
+          <option value="PYTHON">Python</option>
+          <option value="CPP">C++</option>
+          <option value="CS">C#</option>
+          <option value="ANGULAR">Angular</option>
+          <option value="REACT">React</option>
+          <option value="VUEJS">Vue.js</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Start Date</label>
+        <input
+          [(ngModel)]="internship.startDate"
+          type="date"
+          class="form-control"
+          id="startDate"
+          name="startDate"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="endDate" class="form-label">End Date</label>
+        <input
+          [(ngModel)]="internship.endDate"
+          type="date"
+          class="form-control"
+          id="endDate"
+          name="endDate"
+          required
+        />
+      </div>
+      <div class="form-check mb-3">
+        <input
+          [(ngModel)]="internship.paid"
+          type="checkbox"
+          class="form-check-input"
+          id="paid"
+          name="paid"
+        />
+        <label for="paid" class="form-check-label">Paid Internship</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+  
