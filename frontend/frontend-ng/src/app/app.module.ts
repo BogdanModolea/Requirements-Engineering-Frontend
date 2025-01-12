@@ -12,6 +12,8 @@ import { HomeComponent } from './components/home/home.component';
 import { InternshipsComponent } from './components/internships/internships.component';
 import { ApplicationsComponent } from './components/applications/applications.component';
 import { ApplyComponent } from './components/apply/apply.component';
+import { ProfileComponent } from './profile/profile.component';
+import { MyapplicationComponent } from './myapplication/myapplication.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ApplyComponent } from './components/apply/apply.component';
     HomeComponent,
     InternshipsComponent,
     ApplicationsComponent,
-    ApplyComponent
+    ApplyComponent,
+    ProfileComponent,
+    MyapplicationComponent
   ],
   imports: [
     BrowserModule,

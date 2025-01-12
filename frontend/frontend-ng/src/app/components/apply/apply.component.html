@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <h2 class="text-center mb-4">Apply for Internship #{{ internshipId }}</h2>
+  <h2 class="text-center mb-4">Apply for Internship</h2>
   <form>
     <!-- Name Field -->
     <div class="mb-3">
@@ -8,7 +8,7 @@
         type="text"
         id="name"
         class="form-control"
-        [value]="currentUser.name"
+        [value]="currentUser?.fullName"
         disabled
       />
     </div>
@@ -20,33 +20,33 @@
         type="email"
         id="email"
         class="form-control"
-        [value]="currentUser.email"
+        [value]="currentUser?.email"
         disabled
       />
     </div>
 
-    <!-- Company Field -->
+    <!-- Resume Field -->
     <div class="mb-3">
-      <label for="company" class="form-label">Company</label>
+      <label for="resume" class="form-label">Resume</label>
       <input
         type="text"
-        id="company"
+        id="resume"
         class="form-control"
-        [value]="currentUser.company"
+        [value]="currentUser?.resumeUrl"
         disabled
       />
     </div>
 
-    <!-- Additional Information Field -->
+    <!-- Github Field -->
     <div class="mb-3">
-      <label for="additional-info" class="form-label">Additional Information</label>
-      <textarea
-        id="additional-info"
+      <label for="github" class="form-label">Github</label>
+      <input
+        type="text"
+        id="github"
         class="form-control"
-        [(ngModel)]="additionalInfo"
-        rows="4"
-        placeholder="Enter any additional information about yourself"
-      ></textarea>
+        [value]="currentUser?.githubUrl"
+        disabled
+      />
     </div>
 
     <!-- Submit Button -->

@@ -9,15 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./apply.component.scss']
 })
 export class ApplyComponent implements OnInit {
-  currentUser: UserInfo = {
-    company: 'UBB',
-    email: 'student@example.com',
-    enabled: true,
-    id: 1,
-    name: 'John Doe',
-    password: '',
-    roles: 'USER'
-  };
+  currentUser: UserInfo | null = null; // Current logged-in user
   internshipId!: number;
   additionalInfo: string = ''; // To store user-entered additional info
 
@@ -26,9 +18,36 @@ export class ApplyComponent implements OnInit {
   ngOnInit(): void {
     // Get internship ID from route parameters
     this.internshipId = Number(this.route.snapshot.paramMap.get('id'));
+    this.fetchCurrentUser();
+  }
+
+  fetchCurrentUser(): void {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found in localStorage');
+      return;
+    }
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+
+    this.http.get<UserInfo>('http://localhost:8080/api/user/getUserInfoByToken', { headers }).subscribe({
+      next: (user) => {
+        this.currentUser = user;
+      },
+      error: (error) => {
+        console.error('Error fetching current user:', error);
+      }
+    });
   }
 
   submitApplication(): void {
+    if (!this.currentUser) {
+      alert('User information not available. Please try again later.');
+      return;
+    }
+
     const token = localStorage.getItem('token');
     if (!token) {
       alert('No token found in localStorage');

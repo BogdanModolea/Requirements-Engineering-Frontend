@@ -6,6 +6,8 @@ import {HomeComponent} from "./components/home/home.component";
 import {InternshipsComponent} from "./components/internships/internships.component";
 import {ApplyComponent} from "./components/apply/apply.component";
 import {ApplicationsComponent} from "./components/applications/applications.component";
+import { ProfileComponent } from './profile/profile.component';
+import { MyapplicationComponent } from './myapplication/myapplication.component';
 
 const routes: Routes = [
   {
@@ -30,7 +32,9 @@ const routes: Routes = [
     component: InternshipsComponent
   },
   {path: 'apply/:id', component: ApplyComponent},
-  { path: 'applications/:id', component: ApplicationsComponent }, // New route for applications
+  { path: 'applications/:id', component: ApplicationsComponent }, 
+  { path: 'profile', component: ProfileComponent },
+  { path: 'my-applications', component: MyapplicationComponent },// New route for applications
 
   // {
   //   path: 'fragrances',

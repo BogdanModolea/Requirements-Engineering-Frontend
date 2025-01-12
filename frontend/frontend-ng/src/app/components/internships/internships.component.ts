@@ -11,7 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class InternshipsComponent implements OnInit {
   internships: Internship[] = [];
-  currentUser: UserInfo; // Current logged-in user
+  currentUser: UserInfo | null = null; // Current logged-in user
   loading: boolean = false;
 
   technologies: string[] = [
@@ -30,23 +30,42 @@ export class InternshipsComponent implements OnInit {
     technology: ''
   };
 
-  constructor(private router: Router, private http: HttpClient) {
-    // Placeholder user data for testing
-    this.currentUser = {
-      id: 1,
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      company: 'Microsoft', // Change to 'UBB' for student testing
-      enabled: true,
-      roles: 'USER'
-    };
-  }
+  canApplyCache: { [key: number]: boolean } = {};
+
+  constructor(public router: Router, private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.fetchInternships();
+    this.fetchCurrentUser();
+  }
+
+  fetchCurrentUser(): void {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found in localStorage');
+      return;
+    }
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+
+    this.http.get<UserInfo>('http://localhost:8080/api/user/getUserInfoByToken', { headers }).subscribe({
+      next: (user) => {
+        this.currentUser = user;
+        this.fetchInternships();
+      },
+      error: (error) => {
+        console.error('Error fetching current user:', error);
+      }
+    });
   }
 
   fetchInternships(): void {
+    if (!this.currentUser) {
+      console.error('No current user found');
+      return;
+    }
+
     this.loading = true;
 
     const token = localStorage.getItem('token');
@@ -102,6 +121,7 @@ export class InternshipsComponent implements OnInit {
       next: (data) => {
         this.internships = data;
         this.loading = false;
+        this.checkCanApplyForAll();
       },
       error: (error) => {
         console.error('Error fetching internships:', error);
@@ -125,7 +145,7 @@ export class InternshipsComponent implements OnInit {
   }
 
   isStudent(): boolean {
-    return this.currentUser.company === 'UBB';
+    return this.currentUser?.company === 'UBB';
   }
 
   applyForInternship(internshipId: number): void {
@@ -155,5 +175,37 @@ export class InternshipsComponent implements OnInit {
 
   applyFilters(): void {
     this.fetchInternships();
+  }
+
+  checkCanApplyForAll(): void {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found in localStorage');
+      return;
+    }
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+
+    this.internships.forEach((internship) => {
+      if (internship.id !== undefined) {
+        this.http
+          .get<boolean>(`http://localhost:8080/api/applications/canApply/${internship.id}`, { headers })
+          .subscribe({
+            next: (canApply) => {
+              this.canApplyCache[internship.id!] = canApply;
+            },
+            error: (error) => {
+              console.error(`Error checking canApply for internship ${internship.id}:`, error);
+              this.canApplyCache[internship.id!] = false;
+            },
+          });
+      }
+    });
+  }
+
+  canApply(internshipId: number): boolean {
+    return this.canApplyCache[internshipId] ?? false;
   }
 }
