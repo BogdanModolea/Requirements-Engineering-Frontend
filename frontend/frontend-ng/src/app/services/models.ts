@@ -6,6 +6,6 @@ export { Application } from './models/application';
 export { AuthRequest } from './models/auth-request';
 export { InterestInCompany } from './models/interest-in-company';
 export { Internship } from './models/internship';
-export { LoginResponse } from './models/login-response';
 export { Review } from './models/review';
+export { StringDto } from './models/string-dto';
 export { UserInfo } from './models/user-info';

@@ -4,18 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2f0797af-ad21-49d4-827a-dca54eafdb54" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="2f0797af-ad21-49d4-827a-dca54eafdb54" name="Changes" comment="dwadwa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/components/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/components/auth/login/login.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/components/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/components/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/components/internships/internships.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/components/internships/internships.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/api.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/api.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/application-controller/accept-application.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/application-controller/accept-application.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/application-controller/apply-for-internship.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/application-controller/apply-for-internship.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/application-controller/get-applications-by-internship.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/application-controller/get-applications-by-internship.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/application-controller/get-applications-by-user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/application-controller/get-applications-by-user.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/application-controller/reject-application.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/application-controller/reject-application.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/interest-in-company-controller/express-interest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/interest-in-company-controller/express-interest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/interest-in-company-controller/get-interests-by-company.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/interest-in-company-controller/get-interests-by-company.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/interest-in-company-controller/get-interests-by-student.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/interest-in-company-controller/get-interests-by-student.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/internship-controller/filter-internships.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/internship-controller/filter-internships.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/internship-controller/get-all-internships.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/internship-controller/get-all-internships.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/internship-controller/get-internship-by-id.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/internship-controller/get-internship-by-id.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/review-controller/add-review.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/review-controller/add-review.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/review-controller/get-average-rating.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/review-controller/get-average-rating.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/review-controller/get-reviews-by-company.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/review-controller/get-reviews-by-company.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/test/test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/test/test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/user-controller/authenticate-and-get-token.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/user-controller/authenticate-and-get-token.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/user-controller/get-user-info.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/user-controller/get-user-info.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/user-controller/update-urls.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/user-controller/update-urls.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/models.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/models/user-info.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/models/user-info.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/models/login-response.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/services/test.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/services/test.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/services/user-controller.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/services/user-controller.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-ng/src/openapi/openapi.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/openapi/openapi.json" afterDir="false" />
     </list>
@@ -110,11 +122,24 @@
       <option name="presentableId" value="Default" />
       <updated>1736615580705</updated>
       <workItem from="1736615581840" duration="14412000" />
-      <workItem from="1736634170603" duration="5368000" />
+      <workItem from="1736634170603" duration="7440000" />
     </task>
+    <task id="LOCAL-00001" summary="dwadwa">
+      <option name="closed" value="true" />
+      <created>1736640639379</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736640639379</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dwadwa" />
+    <option name="LAST_COMMIT_MESSAGE" value="dwadwa" />
   </component>
 </project>

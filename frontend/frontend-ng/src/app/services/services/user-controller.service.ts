@@ -17,7 +17,7 @@ import { authenticateAndGetToken } from '../fn/user-controller/authenticate-and-
 import { AuthenticateAndGetToken$Params } from '../fn/user-controller/authenticate-and-get-token';
 import { getUserInfo } from '../fn/user-controller/get-user-info';
 import { GetUserInfo$Params } from '../fn/user-controller/get-user-info';
-import { LoginResponse } from '../models/login-response';
+import { StringDto } from '../models/string-dto';
 import { updateUrls } from '../fn/user-controller/update-urls';
 import { UpdateUrls$Params } from '../fn/user-controller/update-urls';
 import { UserInfo } from '../models/user-info';
@@ -62,7 +62,7 @@ export class UserControllerService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  authenticateAndGetToken$Response(params: AuthenticateAndGetToken$Params, context?: HttpContext): Observable<StrictHttpResponse<LoginResponse>> {
+  authenticateAndGetToken$Response(params: AuthenticateAndGetToken$Params, context?: HttpContext): Observable<StrictHttpResponse<StringDto>> {
     return authenticateAndGetToken(this.http, this.rootUrl, params, context);
   }
 
@@ -72,9 +72,9 @@ export class UserControllerService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  authenticateAndGetToken(params: AuthenticateAndGetToken$Params, context?: HttpContext): Observable<LoginResponse> {
+  authenticateAndGetToken(params: AuthenticateAndGetToken$Params, context?: HttpContext): Observable<StringDto> {
     return this.authenticateAndGetToken$Response(params, context).pipe(
-      map((r: StrictHttpResponse<LoginResponse>): LoginResponse => r.body)
+      map((r: StrictHttpResponse<StringDto>): StringDto => r.body)
     );
   }
 

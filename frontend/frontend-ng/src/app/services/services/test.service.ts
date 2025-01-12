@@ -11,6 +11,7 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
+import { StringDto } from '../models/string-dto';
 import { test } from '../fn/test/test';
 import { Test$Params } from '../fn/test/test';
 
@@ -29,7 +30,7 @@ export class TestService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  test$Response(params?: Test$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+  test$Response(params?: Test$Params, context?: HttpContext): Observable<StrictHttpResponse<StringDto>> {
     return test(this.http, this.rootUrl, params, context);
   }
 
@@ -39,9 +40,9 @@ export class TestService extends BaseService {
    *
    * This method doesn't expect any request body.
    */
-  test(params?: Test$Params, context?: HttpContext): Observable<string> {
+  test(params?: Test$Params, context?: HttpContext): Observable<StringDto> {
     return this.test$Response(params, context).pipe(
-      map((r: StrictHttpResponse<string>): string => r.body)
+      map((r: StrictHttpResponse<StringDto>): StringDto => r.body)
     );
   }
 

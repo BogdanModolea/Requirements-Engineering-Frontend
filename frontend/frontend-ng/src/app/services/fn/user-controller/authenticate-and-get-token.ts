@@ -9,13 +9,13 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 import { AuthRequest } from '../../models/auth-request';
-import { LoginResponse } from '../../models/login-response';
+import { StringDto } from '../../models/string-dto';
 
 export interface AuthenticateAndGetToken$Params {
       body: AuthRequest
 }
 
-export function authenticateAndGetToken(http: HttpClient, rootUrl: string, params: AuthenticateAndGetToken$Params, context?: HttpContext): Observable<StrictHttpResponse<LoginResponse>> {
+export function authenticateAndGetToken(http: HttpClient, rootUrl: string, params: AuthenticateAndGetToken$Params, context?: HttpContext): Observable<StrictHttpResponse<StringDto>> {
   const rb = new RequestBuilder(rootUrl, authenticateAndGetToken.PATH, 'post');
   if (params) {
     rb.body(params.body, 'application/json');
@@ -26,7 +26,7 @@ export function authenticateAndGetToken(http: HttpClient, rootUrl: string, param
   ).pipe(
     filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
     map((r: HttpResponse<any>) => {
-      return r as StrictHttpResponse<LoginResponse>;
+      return r as StrictHttpResponse<StringDto>;
     })
   );
 }

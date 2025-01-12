@@ -26,10 +26,8 @@ export class LoginComponent {
       body: this.authRequest
     }).subscribe({
       next: (res) => {
-        // this.tokenService.token = res.token as string;
         this.router.navigate(['internships']);
-        localStorage.setItem('token', res.token as string);
-        console.log("uwu" + res.token);
+        localStorage.setItem('token', res.string as string);
       },
       error: (err : any) => {
         console.log(err);
