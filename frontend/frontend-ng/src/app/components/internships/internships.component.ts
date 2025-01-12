@@ -70,7 +70,62 @@ export class InternshipsComponent implements OnInit {
           paid: false,
           open: true,
           technology: 'REACT'
+        },
+        {
+          id: 5,
+          company: 'TechCorp',
+          startDate: '2025-06-01',
+          endDate: '2025-09-30',
+          paid: true,
+          open: true,
+          technology: 'JAVA'
+        },
+        {
+          id: 6,
+          company: 'TechCorp',
+          startDate: '2025-06-01',
+          endDate: '2025-09-30',
+          paid: true,
+          open: true,
+          technology: 'JAVA'
+        },
+        {
+          id: 7,
+          company: 'TechCorp',
+          startDate: '2025-06-01',
+          endDate: '2025-09-30',
+          paid: true,
+          open: true,
+          technology: 'JAVA'
+        },
+        {
+          id: 8,
+          company: 'TechCorp',
+          startDate: '2025-06-01',
+          endDate: '2025-09-30',
+          paid: true,
+          open: true,
+          technology: 'JAVA'
+        },
+        {
+          id: 9,
+          company: 'TechCorp',
+          startDate: '2025-06-01',
+          endDate: '2025-09-30',
+          paid: true,
+          open: true,
+          technology: 'JAVA'
+        },
+        {
+          id: 10,
+          company: 'TechCorp',
+          startDate: '2025-06-01',
+          endDate: '2025-09-30',
+          paid: true,
+          open: true,
+          technology: 'JAVA'
         }
+
       ];
       this.loading = false;
     }, 1000); // Simulate API delay

@@ -15,6 +15,12 @@ import { addUser } from '../fn/user-controller/add-user';
 import { AddUser$Params } from '../fn/user-controller/add-user';
 import { authenticateAndGetToken } from '../fn/user-controller/authenticate-and-get-token';
 import { AuthenticateAndGetToken$Params } from '../fn/user-controller/authenticate-and-get-token';
+import { getUserInfo } from '../fn/user-controller/get-user-info';
+import { GetUserInfo$Params } from '../fn/user-controller/get-user-info';
+import { LoginResponse } from '../models/login-response';
+import { updateUrls } from '../fn/user-controller/update-urls';
+import { UpdateUrls$Params } from '../fn/user-controller/update-urls';
+import { UserInfo } from '../models/user-info';
 
 @Injectable({ providedIn: 'root' })
 export class UserControllerService extends BaseService {
@@ -56,7 +62,7 @@ export class UserControllerService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  authenticateAndGetToken$Response(params: AuthenticateAndGetToken$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+  authenticateAndGetToken$Response(params: AuthenticateAndGetToken$Params, context?: HttpContext): Observable<StrictHttpResponse<LoginResponse>> {
     return authenticateAndGetToken(this.http, this.rootUrl, params, context);
   }
 
@@ -66,9 +72,59 @@ export class UserControllerService extends BaseService {
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  authenticateAndGetToken(params: AuthenticateAndGetToken$Params, context?: HttpContext): Observable<string> {
+  authenticateAndGetToken(params: AuthenticateAndGetToken$Params, context?: HttpContext): Observable<LoginResponse> {
     return this.authenticateAndGetToken$Response(params, context).pipe(
-      map((r: StrictHttpResponse<string>): string => r.body)
+      map((r: StrictHttpResponse<LoginResponse>): LoginResponse => r.body)
+    );
+  }
+
+  /** Path part for operation `updateUrls()` */
+  static readonly UpdateUrlsPath = '/api/user/{userId}/update-urls';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `updateUrls()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  updateUrls$Response(params: UpdateUrls$Params, context?: HttpContext): Observable<StrictHttpResponse<UserInfo>> {
+    return updateUrls(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `updateUrls$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  updateUrls(params: UpdateUrls$Params, context?: HttpContext): Observable<UserInfo> {
+    return this.updateUrls$Response(params, context).pipe(
+      map((r: StrictHttpResponse<UserInfo>): UserInfo => r.body)
+    );
+  }
+
+  /** Path part for operation `getUserInfo()` */
+  static readonly GetUserInfoPath = '/api/user/getUserInfo/{username}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `getUserInfo()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserInfo$Response(params: GetUserInfo$Params, context?: HttpContext): Observable<StrictHttpResponse<UserInfo>> {
+    return getUserInfo(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `getUserInfo$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  getUserInfo(params: GetUserInfo$Params, context?: HttpContext): Observable<UserInfo> {
+    return this.getUserInfo$Response(params, context).pipe(
+      map((r: StrictHttpResponse<UserInfo>): UserInfo => r.body)
     );
   }
 

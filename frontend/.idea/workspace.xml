@@ -5,13 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f0797af-ad21-49d4-827a-dca54eafdb54" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/components/applications/applications.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/components/applications/applications.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/components/applications/applications.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/components/applications/applications.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/components/applications/applications.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/components/applications/applications.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/components/internships/internships.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/components/internships/internships.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/components/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/components/auth/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/components/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/components/auth/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/components/internships/internships.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/components/internships/internships.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/api.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/api.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/user-controller/authenticate-and-get-token.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/fn/user-controller/authenticate-and-get-token.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/models/user-info.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/models/user-info.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/app/services/services/user-controller.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/app/services/services/user-controller.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend-ng/src/openapi/openapi.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend-ng/src/openapi/openapi.json" afterDir="false" />
     </list>
     <list id="a2706912-d4d6-4cb1-a64f-38206878ae20" name="Changes by eXoDuSs" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,9 +31,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2rUZOD1t5p3mJp1ETvJRh7laKrs" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -40,13 +46,13 @@
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/User/source/repos/proiect-colectiv/frontend",
+    "last_opened_file_path": "C:/Users/eXoDuSs/Desktop/kmjhbj/Requirements-Engineering-Backend/Internship",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\User\\source\\repos\\Requirements-Engineering-Frontend\\frontend\\frontend-ng\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "C:\\Users\\eXoDuSs\\Desktop\\zzz\\Requirements-Engineering-Frontend\\frontend\\frontend-ng\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -56,8 +62,12 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="SwaggerCodegen">
+    <configuration default="true" type="SwaggerCodegen" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allowRunningInParallel" value="false" />
       <option name="customTemplatesPath" value="" />
+      <option name="envs">
+        <map />
+      </option>
       <option name="generateToPath" value="C:\Users\User\gen" />
       <option name="generationParameters">
         <list />
@@ -65,7 +75,14 @@
       <option name="generatorType" value="OPENAPI_GENERATOR_V6" />
       <option name="jdkPath" value="C:\Program Files\JetBrains\IntelliJ IDEA 2023.2\jbr\bin\java.exe" />
       <option name="language" value="kotlin" />
+      <option name="passParentEnvs" value="true" />
+      <option name="programParameters" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
       <option name="specificationPath" value="C:\Users\User\source\repos\Requirements-Engineering-Frontend\frontend\frontend-ng\src\openapi\openapi.json" />
+      <option name="workingDirectory" value="C:\Users\User\source\repos\Requirements-Engineering-Frontend\frontend\frontend-ng\src\openapi" />
       <method v="2" />
     </configuration>
     <configuration name="api-gen" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -93,6 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1736615580705</updated>
       <workItem from="1736615581840" duration="14412000" />
+      <workItem from="1736634170603" duration="5368000" />
     </task>
     <servers />
   </component>

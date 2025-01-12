@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import {Router} from "@angular/router";
 import {UserInfo} from "../../../services/models/user-info";
 import {UserControllerService} from "../../../services/services/user-controller.service";
+import {AuthRequest} from "../../../services/models/auth-request";
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import {UserControllerService} from "../../../services/services/user-controller.
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  authRequest: UserInfo = { email: '', enabled: false, name: '', password: '', roles: ''};
+  authRequest: AuthRequest = { username: '', password: ''};
   errorMsg: Array<string> = [];
 
   constructor(
@@ -24,9 +25,11 @@ export class LoginComponent {
     this.authService.authenticateAndGetToken({
       body: this.authRequest
     }).subscribe({
-      next: (res : any) => {
+      next: (res) => {
         // this.tokenService.token = res.token as string;
-        this.router.navigate(['fragrances']);
+        this.router.navigate(['internships']);
+        localStorage.setItem('token', res.token as string);
+        console.log("uwu" + res.token);
       },
       error: (err : any) => {
         console.log(err);

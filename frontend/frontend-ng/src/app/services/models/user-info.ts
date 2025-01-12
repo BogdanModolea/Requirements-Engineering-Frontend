@@ -6,8 +6,11 @@ export interface UserInfo {
   company?: string;
   email?: string;
   enabled?: boolean;
+  fullName?: string;
+  githubUrl?: string;
   id?: number;
   name?: string;
   password?: string;
+  resumeUrl?: string;
   roles?: string;
 }
