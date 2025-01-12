@@ -10,6 +10,8 @@ import { UserInfo} from "../../../services/models/user-info";
 })
 export class RegisterComponent {
   registerRequest: UserInfo = { email: '', enabled: false, name: '', password: '', roles: ''};
+  name: string = '';
+  fullName: string = '';
   errorMsg: Array<string> = [];
   successMessage: string = '';
 
@@ -25,10 +27,18 @@ export class RegisterComponent {
   register() {
     this.errorMsg = [];
     this.successMessage = '';
-    this.authService.addUser({ body: this.registerRequest }).subscribe({
+    const registerPayload = {
+      name: this.name,
+      fullName: this.fullName,
+      email: this.registerRequest.email,
+      password: this.registerRequest.password,
+    };
+    this.authService.addUser({ body: registerPayload }).subscribe({
       next: () => {
-        this.successMessage = 'Registration successful. Please check your email to activate your account.';
+        this.successMessage = 'Registration successful';
         this.registerRequest = { email: '', enabled: false, name: '', password: '', roles: '' };
+        this.name = '';
+        this.fullName = '';
         this.router.navigate(['activate-account']);
       },
       error: (err: { error: { validationErrors: string[]; }; }) => {
